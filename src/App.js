@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+
+import ModalWindow from './components/ModalWindow';
+import ModalRoot from './components/ModalRoot';
+
+import './App.css'
 
 function App() {
+  // признак отображения модального окна
+  const [showModal, setShowModal] = useState(false);
+
+  // обработчик нажатия кнопки отображения модального окна
+  const handleClick = (e) => {
+    setShowModal(true);
+  }
+
+  // обработчик нажатия кнопки закрытия модального окна
+  // передается в компонент окна 
+  const handleClose = () => {
+    setShowModal(false);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        Пример использования портала
       </header>
+      <div id="content">
+        <article>
+          <button onClick={handleClick}>Показать модальное окно</button>
+        </article>
+        {/* условный рендеринг компонента-обертки с модальным окном в потомках */}
+        {showModal && <ModalRoot><ModalWindow onClose={handleClose} /></ModalRoot>}
+      </div>
     </div>
   );
 }

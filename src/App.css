@@ -1,5 +1,13 @@
-.App {
-  text-align: center;
+article {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App {  
+  background: lightblue;
+  overflow: hidden;  
 }
 
 .App-logo {
@@ -15,7 +23,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
